@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>fiTracker</title>
+<link rel=stylesheet type=text/css href="{{url_for('static', filename='style.css')}}">
+</head>
+<div class=page>
+<h1>FiTracker: Weight Loss Tool</h1>
+<div class=metanav>
+{% if not session.logged_in %}
+    <a href="{{url_for('login')}}">log in </a>
+{% else %}
+    <a href="{{url_for('logout')}}">log out</a>
+{% endif %}
+</div>
+{% for message in get_flashed_messages() %}
+<div class=flash>{{ message }} </div>
+{% endfor %}
+{% block body %}
+<p>
+To many tools I see today focus on the wrong elements for healthy weight loss, or if they are actually good programs they cost a lot of money.  The goal of fitracker is to provide an easy to use tool that tracks and graphs the important metrics for a healthy life style.
+</p>
+{% endblock %}
+</div>
+</html>
+
